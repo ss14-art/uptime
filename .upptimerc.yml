@@ -32,5 +32,5 @@ sites:
 
 status-website:
   name: SS14 Status
-  baseUrl: /ss14-upptime
+  baseUrl: /uptime
   theme: dark
