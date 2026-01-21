@@ -34,7 +34,7 @@ sites:
     check: tcp-ping
     url: de.veroid.net
     port: 10007
-    icon: https://ss14.art/favicon.ico
+    icon: https://i.postimg.cc/BvYfhzmk/favicon.png
 
   - name: PostgreSQL (TCP)
     check: tcp-ping
