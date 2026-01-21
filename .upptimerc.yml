@@ -52,8 +52,7 @@ sites:
 status-website:
   name: SS14 Status
   baseUrl: /uptime/
-  themeUrl: https://ss14-art.github.io/uptime/themes/ss14-art.css
-  theme: ss14-art
+  theme: night
   logoUrl: https://i.postimg.cc/5tfrWmXR/logo.png
   favicon: https://i.postimg.cc/5tfrWmXR/logo.png
   faviconSvg: https://i.postimg.cc/5tfrWmXR/logo.png
