@@ -5,9 +5,7 @@ user-agent: ss14-art
 sites:
   - name: SS14 Auth
     url: https://auth.ss14.art
-  - name: SS14 Changelog
-    url: https://cl.ss14.art
-  - name: SS14 RSS
+  - name: SS14 RSS & Changelog
     url: https://rss.ss14.art
   - name: SS14 Website
     url: https://ss14.art
