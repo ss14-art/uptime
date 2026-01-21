@@ -1,34 +1,45 @@
+:root {
+  --space-dark: #050505;
+  --space-light: #ffffff;
+  --space-gray: rgba(255, 255, 255, 0.6);
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-dark: rgba(0, 0, 0, 0.3);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --accent: #1abc9c;
+}
+
 body {
   margin: 0;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Ubuntu, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.5;
   padding-bottom: 2.5rem;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.03), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.02), transparent 30%),
+    var(--space-dark);
+  color: var(--space-light);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin: 0 0 0.5em 0;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
 }
 
-h1 {
-  font-size: 2em;
-}
+h1 { font-size: 2em; }
 
 a {
-  color: inherit;
+  color: var(--space-gray);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--space-light);
 }
 
 @media (min-width: 400px) {
-  body {
-    font-size: 16px;
-  }
+  body { font-size: 16px; }
 }
 
 .container {
@@ -39,11 +50,16 @@ a {
 }
 
 article {
-  padding: 1rem 1.25rem;
+  padding: 1.25rem;
   position: relative;
-  border-radius: 0.2rem;
-  border: 1px solid;
+  border-radius: 0.3rem;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-dark);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
 }
+
 article.link a::after {
   content: "";
   position: absolute;
@@ -52,26 +68,24 @@ article.link a::after {
   top: 0;
   bottom: 0;
 }
-article + article {
-  margin-top: 0.5rem;
+
+article + article { margin-top: 1rem; }
+article + h3 { margin-top: 1.5rem; }
+
+h3 { opacity: 0.85; }
+h4 { font-weight: 600; }
+
+article.down, article.degraded, article.up {
+  border-left: 0.3rem solid;
+  border-left-color: var(--down-border-left-color, #eb3b5a);
 }
-article + h3 {
-  margin-top: 1rem;
-}
-h3 {
-  opacity: 0.75;
-}
-h4 {
-  font-weight: bold;
-}
-article.down {
-  border-left: 0.2rem solid;
-}
+
 article.degraded {
-  border-left: 0.2rem solid;
+  border-left-color: var(--degraded-border-left-color, #f7b731);
 }
+
 article.up {
-  border-left: 0.2rem solid;
+  border-left-color: var(--up-border-left-color, #20bf6b);
 }
 
 .f {
@@ -81,48 +95,59 @@ article.up {
   flex-wrap: wrap;
 }
 
-section + h2 {
-  margin-top: 2rem;
-}
+section + h2 { margin-top: 2rem; }
 
 .tag {
   display: inline-block;
-  padding: 0.33rem 0.5rem;
-  border-radius: 0.2rem;
-  font-size: 70%;
+  padding: 0.33rem 0.6rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
   vertical-align: middle;
   margin-top: -0.2rem;
   margin-left: 0.5rem;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
 }
 
-dl {
-  margin-bottom: 1.5rem;
-}
-dl dt {
-  font-weight: bold;
-}
-dl dd {
-  margin: 0 0 1rem 0;
-}
+dl { margin-bottom: 1.5rem; }
+dl dt { font-weight: 600; }
+dl dd { margin: 0 0 1rem 0; }
 
 nav {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--glass-border);
+  background: var(--glass-dark);
+  backdrop-filter: blur(10px);
 }
 
 [aria-current] {
-  border-bottom: 2px solid;
+  border-bottom: 2px solid var(--accent);
 }
 
 a.error-button {
-  border: 0.1rem solid;
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  color: var(--space-light);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+a.error-button:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* Theming */
-
 .submit-button {
-  background: #01a3a4;
-  color: #fff;
-  border-color: transparent;
+  background: var(--accent);
+  color: var(--space-light);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.submit-button:hover {
+  background: rgba(26, 188, 156, 0.8);
 }
 
 body {
@@ -131,8 +156,10 @@ body {
 }
 
 code {
-  color: var(--code-color);
-  background: var(--code-background-color);
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.2rem;
 }
 
 article {
@@ -140,40 +167,36 @@ article {
   border-color: var(--card-border-color);
 }
 
-article.down {
-  border-left-color: var(--down-border-left-color) !important;
-  color: var(--down-color-color);
-}
 article.down-active {
-  background: var(--down-background-color);
+  background: rgba(107, 16, 32, 0.2);
   border-color: var(--down-border-left-color);
 }
+
 article.degraded {
   border-left-color: var(--degraded-border-left-color) !important;
-  color: var(--degraded-color-color);
-}
-article.up {
-  border-left-color: var(--up-border-left-color) !important;
-  color: var(--up-color-color);
 }
 
-.tag {
-  color: var(--tag-color);
+article.up {
+  border-left-color: var(--up-border-left-color) !important;
 }
-.tag.closed,
-.tag.up {
-  background: var(--tag-up-background-color) !important;
+
+.tag.closed, .tag.up {
+  background: rgba(32, 191, 107, 0.2) !important;
+  color: #20bf6b;
 }
-.tag.open,
-.tag.down {
-  background: var(--tag-down-background-color) !important;
+
+.tag.open, .tag.down {
+  background: rgba(235, 59, 90, 0.2) !important;
+  color: #eb3b5a;
 }
+
 .tag.degraded {
-  background: var(--tag-degraded-background-color) !important;
+  background: rgba(247, 183, 49, 0.2) !important;
+  color: #f7b731;
 }
 
 .changed + section .data {
-  background: var(--change-background-color);
+  background: rgba(247, 183, 49, 0.1);
 }
 
 nav {
@@ -191,13 +214,36 @@ a.error-button {
   color: var(--error-button-color);
 }
 
-.submit-button {
-  background: var(--submit-button-background-color);
-  color: var(--submit-button-color);
-  border-color: var(--submit-button-border-color);
-}
-
 article .graph {
   opacity: var(--graph-opacity);
   filter: var(--graph-filter);
+}
+
+/* Ribbed pattern for cards */
+.ribbed-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Header glow effect */
+.header-glow {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Section title underline */
+.section-title {
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
