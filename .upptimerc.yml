@@ -10,6 +10,10 @@ sites:
   - name: SS14 RSS & Changelog
     url: https://rss.ss14.art
     icon: https://i.postimg.cc/5tfrWmXR/logo.png
+    
+  - name: SS14 Replay
+    url: https://replays.ss14.art
+    icon: https://i.postimg.cc/5tfrWmXR/logo.png
 
   - name: SS14 Website
     url: https://ss14.art
