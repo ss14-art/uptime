@@ -1,7 +1,7 @@
 url: https://auth.spacestation14.com/api/query/userid?userid=$TOP_SECRET_VALID_SS14_USER
 status: up
 code: 200
-responseTime: 246
-lastUpdated: 2026-01-28T23:34:27.370Z
+responseTime: 509
+lastUpdated: 2026-01-29T23:34:12.334Z
 startTime: 2026-01-21T17:08:52.262Z
 generator: Upptime <https://github.com/upptime/upptime>
